@@ -1,6 +1,6 @@
-# 京大PandA MFA自動入力 Chrome拡張機能
+# 京大KULMS MFA自動入力 Chrome拡張機能
 
-京都大学の **PandA / SSO** ログインで毎回出てくる **ワンタイムパスワード (OTP)** の入力作業を全自動化する Chrome 拡張機能。
+京都大学の **KULMS / SSO** ログインで毎回出てくる **ワンタイムパスワード (OTP)** の入力作業を全自動化する Chrome 拡張機能。
 
 - 「『多要素認証：メール』ログインはこちら」を自動クリック
 - 確認ダイアログの **Yes** を自動クリック
@@ -62,11 +62,11 @@ cd kyoto-u-mfa-autofill
 ### Step 2: Google Cloud プロジェクトと OAuth クライアントを作成
 
 1. <https://console.cloud.google.com/> にアクセス（普段使っている Google アカウントでOK）
-2. 上部のプロジェクトセレクタ → 「新しいプロジェクト」→ 名前は何でもOK (例: `panda-mfa`)
+2. 上部のプロジェクトセレクタ → 「新しいプロジェクト」→ 名前は何でもOK (例: `kulms-mfa`)
 3. 「APIとサービス」→「ライブラリ」→ **Gmail API** を検索して「有効にする」
 4. 「APIとサービス」→「OAuth 同意画面」
    - User Type: **外部**
-   - アプリ名: 何でもOK (例: `PandA MFA Autofill`)
+   - アプリ名: 何でもOK (例: `KULMS MFA Autofill`)
    - ユーザーサポートメール / デベロッパー連絡先: 自分のメール
    - スコープ画面では何も追加しなくてOK（「保存して次へ」）
    - **テストユーザー**: 自分の Gmail アドレスを追加 ← 重要
@@ -104,7 +104,7 @@ cd kyoto-u-mfa-autofill
 
 ### Step 5: Gmail にサインイン
 
-1. 拡張機能アイコン（パズルピース）→ 「京大PandA MFA自動入力」をピン留め
+1. 拡張機能アイコン（パズルピース）→ 「京大KULMS MFA自動入力」をピン留め
 2. ピン留めしたアイコンをクリック → ポップアップが開く
 3. 「**Gmailにサインイン**」をクリック → Google の認証画面が出るので承認
 4. 「Gmail認証 認証済み」と表示されれば完了
@@ -115,7 +115,7 @@ cd kyoto-u-mfa-autofill
 
 セットアップが終われば、もう何もしなくてOK。
 
-1. 普通にPandA (<https://panda.ecs.kyoto-u.ac.jp/>) や ECS-IDログインが必要なサービスにアクセス
+1. 普通に KULMS (<https://lms.gakusei.kyoto-u.ac.jp/>) や ECS-ID ログインが必要なサービスにアクセス
 2. ID / Pass を入力（Chrome のオートフィルが効くはず）
 3. MFA画面に遷移 → **自動で全部やってくれる**:
    - メール認証に切替

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "京大PandA MFA自動入力",
+  "name": "京大KULMS MFA自動入力",
   "version": "0.3.0",
-  "description": "PandAのMFA認証を自動化します。OTP発行→Gmail取得→自動入力。",
+  "description": "KULMSのMFA認証を自動化します。OTP発行→Gmail取得→自動入力。",
   "permissions": [
     "identity",
     "storage",
