@@ -42,42 +42,6 @@ main {
   gap: 12px;
 }
 
-.provider {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.label-block {
-  font-size: 11px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.seg {
-  display: flex;
-  gap: 12px;
-  background: var(--kyoto-blue-light);
-  padding: 6px 10px;
-  border-radius: 6px;
-}
-
-.seg label {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.hint {
-  font-size: 10px;
-  color: var(--muted);
-  margin: 6px 0 0;
-  word-break: break-all;
-}
-
 .status {
   background: var(--kyoto-blue-light);
   border-radius: 6px;
