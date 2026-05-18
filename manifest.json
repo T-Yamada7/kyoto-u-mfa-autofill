@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "京大PandA MFA自動入力",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "PandAのMFA認証を自動化します。OTP発行→Gmail取得→自動入力。",
   "permissions": [
     "identity",
@@ -12,7 +12,9 @@
   "host_permissions": [
     "https://lms.gakusei.kyoto-u.ac.jp/*",
     "https://auth.iimc.kyoto-u.ac.jp/*",
-    "https://www.googleapis.com/*"
+    "https://www.googleapis.com/*",
+    "https://login.microsoftonline.com/*",
+    "https://graph.microsoft.com/*"
   ],
   "oauth2": {
     "client_id": "YOUR_OAUTH_CLIENT_ID.apps.googleusercontent.com",

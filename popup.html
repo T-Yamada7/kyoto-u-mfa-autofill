@@ -11,9 +11,17 @@
   </header>
 
   <main>
+    <section class="provider">
+      <label class="label-block">メールプロバイダ</label>
+      <div class="seg">
+        <label><input type="radio" name="provider" value="gmail" /> Gmail</label>
+        <label><input type="radio" name="provider" value="outlook" /> Outlook</label>
+      </div>
+    </section>
+
     <section class="status">
       <div class="row">
-        <span class="label">Gmail認証</span>
+        <span class="label">認証状態</span>
         <span id="authStatus" class="value">確認中…</span>
       </div>
       <div class="row">
@@ -28,7 +36,7 @@
         <span>自動入力を有効にする</span>
       </label>
 
-      <button id="signInBtn" class="primary">Gmailにサインイン</button>
+      <button id="signInBtn" class="primary">サインイン</button>
       <button id="signOutBtn" class="ghost">サインアウト</button>
       <button id="manualBtn" class="secondary">このタブで手動実行</button>
     </section>
@@ -36,15 +44,37 @@
     <section class="config">
       <details>
         <summary>詳細設定</summary>
-        <label>
-          送信元アドレスで絞り込む
-          <input type="text" id="senderFilter" placeholder="例: noreply@iimc.kyoto-u.ac.jp" />
-        </label>
-        <label>
-          Gmail検索クエリ
-          <input type="text" id="gmailQuery" />
-        </label>
+
+        <!-- Outlook 限定 -->
+        <div id="outlookConfig" class="provider-config" hidden>
+          <label>
+            Outlook Client ID (Azure で取得)
+            <input type="text" id="outlookClientId" placeholder="11111111-2222-3333-4444-555555555555" />
+          </label>
+          <label>
+            送信元アドレスで絞り込む
+            <input type="text" id="outlookSenderFilter" />
+          </label>
+          <label>
+            検索クエリ (件名のキーワード)
+            <input type="text" id="outlookQuery" />
+          </label>
+        </div>
+
+        <!-- Gmail 限定 -->
+        <div id="gmailConfig" class="provider-config" hidden>
+          <label>
+            送信元アドレスで絞り込む
+            <input type="text" id="gmailSenderFilter" />
+          </label>
+          <label>
+            Gmail検索クエリ
+            <input type="text" id="gmailQuery" />
+          </label>
+        </div>
+
         <button id="saveConfigBtn" class="secondary">保存</button>
+        <p class="hint" id="redirectHint"></p>
       </details>
     </section>
 
