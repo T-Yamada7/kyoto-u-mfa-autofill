@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# エディタ
+.vscode/
+.idea/
+
+# ローカル設定 (個人のClient IDを入れたmanifestの上書きに使う場合)
+manifest.local.json
+*.local.json
+
+# 配布用パッケージ
+*.zip
+*.crx
+*.pem
+
+# ログ
+*.log
+
+# Node (将来的にビルドスクリプト等を入れる可能性)
+node_modules/

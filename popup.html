@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>京大PandA MFA自動入力</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <h1>京大PandA MFA自動入力</h1>
+  </header>
+
+  <main>
+    <section class="status">
+      <div class="row">
+        <span class="label">Gmail認証</span>
+        <span id="authStatus" class="value">確認中…</span>
+      </div>
+      <div class="row">
+        <span class="label">最終結果</span>
+        <span id="lastResult" class="value">-</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <label class="toggle">
+        <input type="checkbox" id="enabledToggle" />
+        <span>自動入力を有効にする</span>
+      </label>
+
+      <button id="signInBtn" class="primary">Gmailにサインイン</button>
+      <button id="signOutBtn" class="ghost">サインアウト</button>
+      <button id="manualBtn" class="secondary">このタブで手動実行</button>
+    </section>
+
+    <section class="config">
+      <details>
+        <summary>詳細設定</summary>
+        <label>
+          送信元アドレスで絞り込む
+          <input type="text" id="senderFilter" placeholder="例: noreply@iimc.kyoto-u.ac.jp" />
+        </label>
+        <label>
+          Gmail検索クエリ
+          <input type="text" id="gmailQuery" />
+        </label>
+        <button id="saveConfigBtn" class="secondary">保存</button>
+      </details>
+    </section>
+
+    <section class="log">
+      <h2>ログ</h2>
+      <pre id="logArea"></pre>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

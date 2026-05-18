@@ -1,0 +1,163 @@
+:root {
+  --kyoto-blue: #00356b;
+  --kyoto-blue-dark: #002347;
+  --kyoto-blue-light: #e6edf5;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --danger: #b91c1c;
+  --success: #047857;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Yu Gothic UI', sans-serif;
+  margin: 0;
+  width: 340px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+}
+
+header {
+  background: var(--kyoto-blue);
+  color: #fff;
+  padding: 10px 12px;
+}
+
+header h1 {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 600;
+}
+
+main {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status {
+  background: var(--kyoto-blue-light);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.label {
+  color: var(--muted);
+}
+
+.value {
+  font-weight: 600;
+}
+
+.value.ok {
+  color: var(--success);
+}
+
+.value.err {
+  color: var(--danger);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+
+button:hover { opacity: 0.9; }
+button:active { opacity: 0.7; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+button.primary {
+  background: var(--kyoto-blue);
+  color: #fff;
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--kyoto-blue);
+  border-color: var(--kyoto-blue);
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.config details {
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
+.config summary {
+  cursor: pointer;
+  color: var(--muted);
+  padding: 4px 0;
+}
+
+.config label {
+  display: block;
+  margin: 8px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.config input {
+  width: 100%;
+  margin-top: 4px;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.log h2 {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.log pre {
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 11px;
+  max-height: 100px;
+  overflow: auto;
+  margin: 0;
+  white-space: pre-wrap;
+}
