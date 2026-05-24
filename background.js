@@ -4,8 +4,8 @@
 const GMAIL_API_BASE = 'https://www.googleapis.com/gmail/v1/users/me';
 
 // ポーリング設定
-const POLL_INTERVAL_MS = 2000;
-const POLL_MAX_ATTEMPTS = 15; // 2s * 15 = 30s
+const POLL_INTERVAL_MS = 1500;
+const POLL_MAX_ATTEMPTS = 20; // 1.5s * 20 = 30s
 
 // Gmail検索クエリ（京大IIMC: 件名 "ワンタイムパスワードのお知らせ / Notification of one time password"）
 const DEFAULT_GMAIL_QUERY_TEMPLATE =
@@ -176,15 +176,12 @@ function extractOTP(text) {
 async function fetchOTPOnce(token, settings, afterTimestampSec, triggerMs) {
   const query = buildQuery(settings, afterTimestampSec);
   const messages = await listOTPMessages(token, query);
-  // Gmail検索の `after:` は日単位粒度なので、ここで internalDate (ms) を使い
-  // ポーリング開始時刻より厳密に新しいメールだけを採用する。
-  // messages.list は新しい順に返ってくるが、念のため取得後にソートする。
+  // 全メールを並列取得してからフィルタ（シリアル取得だと最大5件×~300ms=1.5sのムダ）
+  const fulls = await Promise.all(messages.map((m) => getMessage(token, m.id)));
   const candidates = [];
-  for (const m of messages) {
-    const full = await getMessage(token, m.id);
+  for (const full of fulls) {
     const internalMs = parseInt(full.internalDate || '0', 10);
     if (triggerMs && internalMs && internalMs < triggerMs) {
-      // ポーリング開始より前のメール (=以前のOTP) はスキップ
       continue;
     }
     candidates.push({ full, internalMs });

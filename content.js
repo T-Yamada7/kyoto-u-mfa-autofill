@@ -168,8 +168,8 @@
           chrome.storage.local.set({ otpRequestedAt: Date.now() }).catch(() => {});
           link.click();
           acted.clickedEmailLink = true;
-          // ダイアログ表示を待つ
-          await sleep(300);
+          // ダイアログ表示を待つ (MutationObserver が次tickを発火するが念のため)
+          await sleep(200);
         }
       }
 
@@ -182,8 +182,8 @@
           chrome.storage.local.set({ otpRequestedAt: Date.now() }).catch(() => {});
           yes.click();
           acted.clickedYes = true;
-          // メール送信&画面遷移を待つ。OTPは2-10秒で届く前提
-          await sleep(800);
+          // 画面遷移を待つ (OTPメールの到着はpollingが担う)
+          await sleep(500);
         }
       }
 
