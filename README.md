@@ -9,27 +9,30 @@
 
 > **対応:** `https://auth.iimc.kyoto-u.ac.jp/` のメール認証フロー (`ninsho-qa@iimc.kyoto-u.ac.jp` から届くOTPメール)
 >
-> **前提:** 普段のログインで OTP が **Gmail に届く** こと（京大メールを Gmail に転送している人含む）
+> **前提:** 京大の MFA「メール認証」は **大学メール (@st.kyoto-u.ac.jp / @kyoto-u.ac.jp) 以外** のアドレスしか登録できません。Gmail アドレスを MFA に登録しておけば OTP が直接 Gmail に届くので、転送設定なしでそのまま使えます。
 
 ---
 
-## 📨 京大メール (`@st.kyoto-u.ac.jp`) しか使ってない人へ
+## 📨 Gmail アカウントを持っていない人へ
 
-この拡張機能は **Gmail 専用** です。京大メール (Microsoft 365 ベース) を使っている人は、**京大メール → Gmail への転送設定** を済ませてから使ってください。所要時間 5分。
+この拡張機能は **Gmail 専用** です。Gmail アカウントがない場合は <https://accounts.google.com/signup> で作成してください（OTP受信専用なので個人情報の登録は最小限でOK）。
 
-### 京大メール (Outlook web) での転送設定
+作成後、京大 MFA の設定画面で **Gmail アドレスを登録**すれば OTP が直接届くようになります。
 
-1. <https://outlook.office.com/> にサインイン（@st.kyoto-u.ac.jp）
-2. 右上の歯車（⚙）→ 一番下の「**Outlook のすべての設定を表示**」
-3. 「メール」→「**転送**」
-4. 「**転送を有効にする**」にチェック
-5. 「メールの転送先」に **自分の Gmail アドレス** を入力
-6. (お好みで)「**転送されたメッセージのコピーを保持する**」にチェック
-7. 「保存」
-
-これで `ninsho-qa@iimc.kyoto-u.ac.jp` から届く OTP メールが Gmail にも飛んでくるので、本拡張機能で読めるようになります。
-
-> 💡 Gmail アカウント自体を持っていない場合は、<https://accounts.google.com/signup> で1分で作れます。OTP受信専用に使うだけなら個人情報の登録は最小限でOK。
+> 💡 MFA に **Gmail 以外のメールアドレス**（Yahoo など）を登録している人は、そのメールサービスの転送設定で OTP を Gmail に転送すれば使えます。京大メール (@st.kyoto-u.ac.jp / Outlook) を転送先に使いたい場合は以下を参照。
+>
+> <details>
+> <summary>Outlook (@st.kyoto-u.ac.jp) → Gmail 転送設定の手順（クリックで展開）</summary>
+>
+> 1. <https://outlook.office.com/> にサインイン（@st.kyoto-u.ac.jp）
+> 2. 右上の歯車（⚙）→ 一番下の「**Outlook のすべての設定を表示**」
+> 3. 「メール」→「**転送**」
+> 4. 「**転送を有効にする**」にチェック
+> 5. 「メールの転送先」に **自分の Gmail アドレス** を入力
+> 6. (お好みで)「**転送されたメッセージのコピーを保持する**」にチェック
+> 7. 「保存」
+>
+> </details>
 
 ---
 
